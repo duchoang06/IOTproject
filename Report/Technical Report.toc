@@ -1,0 +1,28 @@
+\contentsline {section}{\numberline {1}Kh\IeC {\'a}i qu\IeC {\'a}t \IeC {\dj }\IeC {\`\ecircumflex } t\IeC {\`a}i}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Gi\IeC {\'\ohorn }i thi\IeC {\d \ecircumflex }u}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Ph\IeC {\`\acircumflex }n c\IeC {\'\uhorn }ng s\IeC {\h \uhorn } d\IeC {\d u}ng}{2}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}NodeMCU ESP8266}{2}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Raspberry Pi 3 B}{2}{subsubsection.1.2.2}
+\contentsline {subsubsection}{\numberline {1.2.3}C\IeC {\'a}c module c\IeC {\h a}m bi\IeC {\'\ecircumflex }n}{2}{subsubsection.1.2.3}
+\contentsline {subsubsection}{\numberline {1.2.4}M\IeC {\`a}n h\IeC {\`\i }nh LCD 16x2}{3}{subsubsection.1.2.4}
+\contentsline {subsubsection}{\numberline {1.2.5}Nh\IeC {\~\uhorn }ng linh ki\IeC {\d \ecircumflex }n kh\IeC {\'a}c}{3}{subsubsection.1.2.5}
+\contentsline {subsection}{\numberline {1.3}Ph\IeC {\`\acircumflex }n m\IeC {\`\ecircumflex }m s\IeC {\h \uhorn } d\IeC {\d u}ng}{3}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Android Studio}{3}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Arduino IDE}{3}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Visual Studio Code}{3}{subsubsection.1.3.3}
+\contentsline {subsubsection}{\numberline {1.3.4}Adobe Muse}{3}{subsubsection.1.3.4}
+\contentsline {subsubsection}{\numberline {1.3.5}SocketTest}{3}{subsubsection.1.3.5}
+\contentsline {section}{\numberline {2}T\IeC {\h \ocircumflex }ng quan h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}S\IeC {\ohorn } \IeC {\dj }\IeC {\`\ocircumflex } kh\IeC {\'\ocircumflex }i}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}\IeC {\textbullet }}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Hi\IeC {\d \ecircumflex }n th\IeC {\d \uhorn }c h\IeC {\d \ecircumflex } th\IeC {\'\ocircumflex }ng}{5}{section.3}
+\contentsline {subsection}{\numberline {3.1}Socket clients}{5}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Socket server}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Module hi\IeC {\h \ecircumflex }n th\IeC {\d i} v\IeC {\`a} \IeC {\dj }i\IeC {\`\ecircumflex }u khi\IeC {\h \ecircumflex }n}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Online server}{5}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}\IeC {\'\UHORN }ng d\IeC {\d u}ng di \IeC {\dj }\IeC {\d \ocircumflex }ng}{5}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Website}{5}{subsection.3.6}
+\contentsline {section}{\numberline {4}App}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}UI}{6}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Web App}{6}{subsubsection.4.1.1}
+\contentsline {subsection}{\numberline {4.2}Code}{7}{subsection.4.2}

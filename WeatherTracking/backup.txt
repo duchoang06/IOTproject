@@ -1,0 +1,143 @@
+package com.duchoang.weathertracking;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import org.json.JSONObject;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+import nz.geek.android.things.driver.display.I2cLcdCharacterDisplay;
+
+public class MainActivity extends Activity {
+    private final static String TAG = "IOTProject@DH";
+    private static final String REQUEST_CONNECT_CLIENT = "DHT";
+    private int ServerSocketPort = 6000;
+    SocketServerThread socketServerThread;
+
+    // For LCD display
+    I2cLcdCharacterDisplay.Builder builder;
+    I2cLcdCharacterDisplay lcd;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+//        builder = I2cLcdCharacterDisplay.builder(16, 2);
+//        builder.rs(0).rw(1).e(2).bl(3).data(4, 5,6, 7).address(6);
+//        lcd = builder.build();
+//        lcd.connect();
+//        lcd.print(0, "BKU");
+
+        socketServerThread = new SocketServerThread();
+        socketServerThread.start();
+    }
+
+    // As a server socket
+    private class SocketServerThread extends Thread {
+        @Override
+        public void run() {
+            Log.i(TAG, "1512155854512302480508485");
+
+            Socket socket = null;
+            ServerSocket serverSocket = null;
+            DataInputStream dataInputStream = null;
+            DataOutputStream dataOutputStream = null;
+            try {
+                serverSocket = new ServerSocket(ServerSocketPort);
+                while (true) {
+                    socket = serverSocket.accept();
+                    dataInputStream = new DataInputStream(socket.getInputStream());
+                    dataOutputStream = new DataOutputStream(socket.getOutputStream());
+                    String messageFromClient, messageToClient, request;
+                    Log.i(TAG, "624840600848405");
+
+                    // If no message sent from client, block the program
+                    messageFromClient = dataInputStream.readUTF();
+                    final JSONObject jsondata;
+                    jsondata = new JSONObject(messageFromClient);
+                    try {
+                        Log.i(TAG, "AAAABCCCCSDSDADWDW");
+
+                        // If the field request valid
+                        // Try to differentiate between clients here
+                        if (jsondata.has("TEMP")) {
+                            // Get data in object element
+                            String receivedTemp = jsondata.getString("TEMP");
+                            // Process got data here
+//                            messageToClient = "Connection Accepted";
+//                            dataOutputStream.wjsondata.has("TEMP")riteUTF(messageToClient)
+
+                            Log.i(TAG, "Temperature got: " + receivedTemp);
+                        } else if (jsondata.has("LIGHT")) {
+                            String receivedLight = jsondata.getString("LIGHT");
+                            Log.i(TAG, "Light got: " + receivedLight);
+
+
+                        } else if (jsondata.has("HUMID")) {
+                            String receivedHumid = jsondata.getString("HUMID");
+                            Log.i(TAG, "Humidity got: " + receivedHumid);
+
+
+                        } else {
+                            Log.w(TAG, "Wrong messages received: " + jsondata);
+                            dataOutputStream.flush();
+                        }
+                    } catch (Exception e) {
+                        Log.w(TAG, "Look, here comes another error!");
+                        dataOutputStream.flush();
+                    }
+                }
+            } catch (Exception e) {
+                Log.w(TAG, "Error here!");
+            } finally {
+                if (socket != null) {
+                    try {
+                        socket.close();
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error upon closing socket connection.");
+                    }
+                }
+                if (dataInputStream != null) {
+                    try {
+                        dataInputStream.close();
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error upon closing socket connection.");
+                    }
+                }
+                if (dataOutputStream != null) {
+                    try {
+                        dataOutputStream.close();
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error upon closing socket connection.");
+                    }
+                }
+            } // end of final
+
+        }
+    }
+
+    // As a HTTP Client
+    private void sendRequest(String str) {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://google.com";
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.i(TAG, "The response is: " + response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Things do not work!");
+            }
+        });
+        queue.add(stringRequest);
+    }
+}
